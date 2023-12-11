@@ -13,13 +13,13 @@ func init() {
 	// Подключение к базе данных PostgreSQL
 	db, err = sql.Open("postgres", "user=postgres dbname=postgres sslmode=disable password=1")
 	if err != nil {
-		log.Fatal(err)
+	log.Println("Not connected")
 	}
 
 	// Проверка соединения с базой данных
 	err = db.Ping()
 	if err != nil {
-		log.Fatal(err)
+	log.Println("Not pinged")
 	}
 
 	log.Println("Successfully connected to the database")
