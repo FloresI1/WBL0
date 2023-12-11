@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message Viewer</title>
+</head>
+<body>
+    <h1>Enter OrderUID</h1>
+    <form action="/delivery" method="get">
+        <label for="order_uid">OrderUID:</label>
+        <input type="text" id="OrderUID" name="order_uid" required>
+        <button type="submit">View Information</button>
+    </form>
+
+    {{if .Delivery}}
+        <h2>Delivery Information</h2>
+        <p><strong>Name:</strong> {{.Delivery.Name}}</p>
+        <p><strong>Phone:</strong> {{.Delivery.Phone}}</p>
+        <p><strong>Address:</strong> {{.Delivery.Address}}</p>
+        <p><strong>City:</strong> {{.Delivery.City}}</p>
+        <p><strong>Region:</strong> {{.Delivery.Region}}</p>
+        <p><strong>Zip:</strong> {{.Delivery.Zip}}</p>
+    {{end}}
+
+    {{if .Payment}}
+        <h2>Payment Information</h2>
+        <p><strong>Transaction:</strong> {{.Payment.Transaction}}</p>
+        <p><strong>Request ID:</strong> {{.Payment.RequestID}}</p>
+        <p><strong>Currency:</strong> {{.Payment.Currency}}</p>
+        <p><strong>Provider:</strong> {{.Payment.Provider}}</p>
+        <p><strong>Amount:</strong> {{.Payment.Amount}}</p>
+        <p><strong>Payment Date:</strong> {{.Payment.PaymentDt}}</p>
+        <p><strong>Bank:</strong> {{.Payment.Bank}}</p>
+        <p><strong>Delivery Cost:</strong> {{.Payment.DeliveryCost}}</p>
+        <p><strong>Goods Total:</strong> {{.Payment.GoodsTotal}}</p>
+        <p><strong>Custom Fee:</strong> {{.Payment.CustomFee}}</p>
+    {{end}}
+
+{{if .Items}}
+    <h2>Items Information</h2>
+        <p><strong>ChrtID:</strong> {{.Items.ChrtID}}</p>
+        <p><strong>Track Number:</strong> {{.Items.TrackNumber}}</p>
+        <p><strong>Price:</strong> {{.Items.Price}}</p>
+        <p><strong>RID:</strong> {{.Items.RID}}</p>
+        <p><strong>Item Name:</strong> {{.Items.Name}}</p>
+        <p><strong>Sale:</strong> {{.Items.Sale}}</p>
+        <p><strong>Size:</strong> {{.Items.Size}}</p>
+        <p><strong>Total Price:</strong> {{.Items.TotalPrice}}</p>
+        <p><strong>NmID:</strong> {{.Items.NmID}}</p>
+        <p><strong>Brand:</strong> {{.Items.Brand}}</p>
+        <p><strong>Status:</strong> {{.Items.Status}}</p>
+    {{end}}
+{{if .Info}}
+    <h2>Info</h2>
+    <p><strong>Locale:</strong> {{.Info.Locale}}</p>
+    <p><strong>Internal Signature:</strong> {{.Info.InternalSignature}}</p>
+    <p><strong>Customer ID:</strong> {{.Info.CustomerID}}</p>
+    <p><strong>Delivery Service:</strong> {{.Info.DeliveryService}}</p>
+    <p><strong>Shard Key:</strong> {{.Info.ShardKey}}</p>
+    <p><strong>SMID:</strong> {{.Info.SMID}}</p>
+    <p><strong>Date Created:</strong> {{.Info.DateCreated}}</p>
+    <p><strong>OOF Shard:</strong> {{.Info.OOFShard}}</p>
+{{end}}
+
+</body>
+</html>
